@@ -1,5 +1,5 @@
 # Introduction
-The <a href="https://github.com/GoogleCloudPlatform/microservices-demo" target="_blank">online boutique</a> is a cloud-native microservices demo application written by the Google cloud platform. It consists of a 10-tier microservices application. The application is a web-based e-commerce app using which users can browse items, add them to the cart, and purchase them. The microservices in the GCP demo are implemented using multiple programming languages such as Java, C#, Go, Javascript and Python.      
+The <a href="https://github.com/GoogleCloudPlatform/microservices-demo" target="_blank">online boutique</a> is a cloud-native microservices demo application written by the Google cloud platform. It consists of a 10-tier microservices application. The application is a web-based e-commerce app using which users can browse items, add them to the cart, and purchase them. The microservices in the GCP demo are implemented using multiple programming languages such as Java, C#, Go, Javascript and Python.
 
 Here, in this demo these microservices are written using [Ballerina language](https://ballerina.io/) to demonstrate the language features, showcase best practices when writing microservices, provide an in-depth understanding of how ballerina services can interact in a real-world scenario and highlight the support of Ballerina to deploy services natively in the cloud. In our implementation, communication between the microservices is handled using gRPC and the frontend is exposed via an HTTP service.
 
@@ -25,7 +25,7 @@ And also following is the automatically generated Ballerina design view of the d
 | [AdService](adservice)                                  | Provides text advertisements based on the context of the given words.
 
 
-The same load generator service will be used for load testing. 
+The same load generator service will be used for load testing.
 The original Go frontend service serves HTML directly using the HTTP server using Go template.  In this sample, the backend is separated from the Ballerina HTTP service and React frontend.
 
 # Service Implementation
@@ -88,7 +88,7 @@ service "RecommendationService" on new grpc:Listener(9090) {
 }
 ```
 
-You can override the value using `Config.toml`. Note that this "catalog-service" is the same value as `cloud.deployment.internal_domain_name` in the `Cloud.toml` of the `Catalog Service`. 
+You can override the value using `Config.toml`. Note that this "catalog-service" is the same value as `cloud.deployment.internal_domain_name` in the `Cloud.toml` of the `Catalog Service`.
 ```toml
 catalogHost="catalog-service"
 ```
@@ -144,22 +144,22 @@ spec:
 * A Gmail Account with access <br/> https://support.google.com/mail/answer/56256?hl=en
 
 * New project with `Gmail API` enabled on the API Console.
-    - Visit [Google API Console](https://console.developers.google.com), click **Create Project**, and follow the wizard 
+    - Visit [Google API Console](https://console.developers.google.com), click **Create Project**, and follow the wizard
     to create a new project.
 
-* OAuth Credentials 
+* OAuth Credentials
     - Go to **OAuth Consent Screen**, select `User Type` as `Internal` and click **Create**. Add an `App name`, `User support email` and `Developer email address` click **Save**.
     - On the **Credentials** tab, click **Create Credentials** and select **OAuth Client ID**.
-    - Select the **Web application** application type, enter a name for the application, and specify a redirect URI 
-    (enter https://developers.google.com/oauthplayground if you want to use [OAuth 2.0 Playground](https://developers.google.com/oauthplayground) 
+    - Select the **Web application** application type, enter a name for the application, and specify a redirect URI
+    (enter https://developers.google.com/oauthplayground if you want to use [OAuth 2.0 Playground](https://developers.google.com/oauthplayground)
     to receive the Authorization Code and obtain the Access Token and Refresh Token).
     - Click **Create**. Your Client ID and Client Secret will appear.
-    - In a separate browser window or tab, visit [OAuth 2.0 Playground](https://developers.google.com/oauthplayground). 
-    Click on the `OAuth 2.0 Configuration` icon in the top right corner and click on `Use your own OAuth credentials` and 
+    - In a separate browser window or tab, visit [OAuth 2.0 Playground](https://developers.google.com/oauthplayground).
+    Click on the `OAuth 2.0 Configuration` icon in the top right corner and click on `Use your own OAuth credentials` and
     provide your `OAuth Client ID` and `OAuth Client Secret`.
     - Select the required Gmail API scopes from the list of APIs (`auth.gmail.send`).
     - Then click **Authorize APIs**.
-    - When you receive your authorization code, click **Exchange authorization code for tokens** to obtain the refresh 
+    - When you receive your authorization code, click **Exchange authorization code for tokens** to obtain the refresh
     token and access token.
 
 * Create the `GmailConfig.toml` file in `emailservice/` and paste the following code after replacing the values.
@@ -201,7 +201,7 @@ If you are not using Minikube, you can execute the following command and push th
 build-all-k8s.sh
 ```
 
-You can execute the following command to build the final YAML file. Kustomize is used for combining all the YAML files that have been generated into one. 
+You can execute the following command to build the final YAML file. Kustomize is used for combining all the YAML files that have been generated into one.
 ```
 kubectl kustomize ./ > final.yaml
 ```
@@ -221,11 +221,10 @@ Execute `kubectl port-forward svc/frontend-svc-local 27017:9098` to forward the 
 
 Change the value of the `FRONTEND_SVC_URL` variable in `ui/src/lib/api.js` to the frontend service (Example Value - http://localhost:27017')
 
-
 # Running the Microservices locally
 
 * Set up the email service with email credentials as explained above.
-* Build and publish the `client_stubs` and `money` modules to the local central as follows. Execute below commmands within each module. 
+* Build and publish the `client_stubs` and `money` modules to the local central as follows. Execute below commmands within each module.
 ```bash
 bal pack
 bal push --repository local
@@ -263,4 +262,4 @@ For more information about observability in Ballerina, please visit [Observe Bal
 - Google Cloud Spanner based datastore is not supported by the cart service.
 - Health check service is not available for gRPC services.
 - Tracing is enabled for all the ballerina gRPC services.
-- GCP Frontend service is represented by two separate services (UI and frontend).  
+- GCP Frontend service is represented by two separate services (UI and frontend).
