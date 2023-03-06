@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerinax/redis;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 # Provides the interface for the RedisStore and InMemoryStore.
 public type DataStore distinct object {
@@ -23,7 +23,7 @@ public type DataStore distinct object {
     # Adds an item to the store.
     #
     # + userId - id of the user
-    # + productId - id of the product 
+    # + productId - id of the product
     # + quantity - count of the selcted product
     # + return - an error if an error occured while adding, else ()
     isolated function addItem(string userId, string productId, int quantity) returns error?;
@@ -49,7 +49,7 @@ public isolated class InMemoryStore {
     # Adds an item to the in-memory store.
     #
     # + userId - id of the user
-    # + productId - id of the product 
+    # + productId - id of the product
     # + quantity - count of the selcted product
     isolated function addItem(string userId, string productId, int quantity) {
         lock {
@@ -117,7 +117,7 @@ public isolated class RedisStore {
     # Adds an item to the redis store.
     #
     # + userId - id of the user
-    # + productId - id of the product 
+    # + productId - id of the product
     # + quantity - count of the selcted product
     # + return - an error if an error occured while adding, else ()
     isolated function addItem(string userId, string productId, int quantity) returns error? {
@@ -126,7 +126,7 @@ public isolated class RedisStore {
             map<int> itemsMap = {[productId] : quantity};
             _ = check self.redisClient->hMSet(userId, itemsMap);
             return;
-        } 
+        }
 
         int existingQuantity = check int:fromString(existingItems.get(productId).toString());
         existingItems[productId] = existingQuantity + quantity;

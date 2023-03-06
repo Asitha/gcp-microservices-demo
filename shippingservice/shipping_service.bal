@@ -17,7 +17,7 @@
 import ballerina/grpc;
 import ballerina/log;
 import ballerinax/jaeger as _;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 const FRACTION_SIZE = 1000000000;
 
@@ -36,7 +36,7 @@ service "ShippingService" on new grpc:Listener(9095) {
     # Provides a quote with shipping cost.
     #
     # + request - `GetQuoteRequest` contaning the user selected items
-    # + return - `GetQuoteResponse` containing the shipping cost 
+    # + return - `GetQuoteResponse` containing the shipping cost
     remote function GetQuote(stubs:GetQuoteRequest request) returns stubs:GetQuoteResponse {
         log:printInfo(string `Received a quotation request with ${request.toString()}`);
 

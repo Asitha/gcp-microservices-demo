@@ -15,7 +15,7 @@
 // under the License.
 
 import ballerina/test;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 @test:Config {}
 function paymentTest() returns error? {

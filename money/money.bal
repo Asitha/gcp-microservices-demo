@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 const FRACTION_SIZE = 1000000000;
 

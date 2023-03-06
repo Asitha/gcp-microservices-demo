@@ -18,7 +18,7 @@ import ballerina/grpc;
 import ballerina/log;
 import ballerinax/googleapis.gmail as gmail;
 import ballerinax/jaeger as _;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 type GmailConfig record {|
     string refreshToken;
@@ -81,12 +81,12 @@ function getConfirmationHtml(stubs:OrderResult result) returns xml|error {
     xml items = from stubs:OrderItem item in result.items
         select xml `<tr>
             <td>#${item.item.product_id}</td>
-            <td>${item.item.quantity}</td> 
+            <td>${item.item.quantity}</td>
             <td>${item.cost.units}.${item.cost.nanos / FRACTION_SIZE} ${item.cost.currency_code}</td>
             </tr>`;
     items = xml `<tr>
           <th>Item No.</th>
-          <th>Quantity</th> 
+          <th>Quantity</th>
           <th>Price</th>
         </tr>` + items;
 

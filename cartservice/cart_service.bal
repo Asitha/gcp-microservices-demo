@@ -17,7 +17,7 @@
 import ballerina/grpc;
 import ballerina/log;
 import ballerinax/jaeger as _;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 configurable string datastore = "";
 configurable string redisHost = "";
@@ -74,4 +74,3 @@ service "CartService" on new grpc:Listener(9092) {
         return {};
     }
 }
-

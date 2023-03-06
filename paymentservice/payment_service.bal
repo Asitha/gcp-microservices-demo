@@ -18,7 +18,7 @@ import ballerina/grpc;
 import ballerina/log;
 import ballerina/uuid;
 import ballerinax/jaeger as _;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 # This service validates the card details (using the Luhn algorithm) against the supported card providers and charges the card.
 @display {
@@ -52,4 +52,3 @@ service "PaymentService" on new grpc:Listener(9096) {
         return {transaction_id: uuid:createType1AsString()};
     }
 }
-
