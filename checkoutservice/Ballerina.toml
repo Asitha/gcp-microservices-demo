@@ -8,13 +8,11 @@ distribution = "2201.2.3"
 observabilityIncluded = true
 
 [[dependency]]
-org = "wso2"
-name = "client_stubs"
+org = "asithan"
+name = "gcp.demo.client.stubs"
 version = "0.1.0"
-repository = "local"
 
 [[dependency]]
-org = "wso2"
-name = "money"
+org = "asithan"
+name = "gcp.demo.money"
 version = "0.1.0"
-repository = "local"

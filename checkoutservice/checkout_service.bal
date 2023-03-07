@@ -18,8 +18,8 @@ import ballerina/grpc;
 import ballerina/log;
 import ballerina/uuid;
 import ballerinax/jaeger as _;
-import wso2/client_stubs as stubs;
-import wso2/money;
+import asithan/gcp.demo.'client.stubs as stubs;
+import asithan/gcp.demo.money;
 
 const string LOCALHOST = "localhost";
 
