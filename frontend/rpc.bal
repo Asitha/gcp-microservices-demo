@@ -17,7 +17,7 @@
 import ballerina/grpc;
 import ballerina/log;
 import ballerina/random;
-import wso2/client_stubs as stubs;
+import asithan/gcp.demo.'client.stubs as stubs;
 
 const LOCALHOST = "localhost";
 
